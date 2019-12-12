@@ -7,7 +7,8 @@
 module.exports = {
     KeypadTypes: {
         FRACTION: 'FRACTION',
-        EXPRESSION: 'EXPRESSION'
+        EXPRESSION: 'EXPRESSION',
+        ALPHABETS: 'ALPHABETS'
     },
 
     KeyTypes: {

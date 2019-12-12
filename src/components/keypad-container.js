@@ -140,7 +140,7 @@ const KeypadContainer = React.createClass({
                 return <ExpressionKeypad {...keypadProps} />;
 
             case KeypadTypes.ALPHABETS:
-                return <AlphabetKeypad {..keypadProps} />;
+                return <AlphabetKeypad {...keypadProps} />;
 
             default:
                 throw new Error("Invalid keypad type: " + keypadType);
@@ -204,7 +204,7 @@ const KeypadContainer = React.createClass({
             >
                 {this.props.keypadType == KeypadTypes.ALPHABETS ?
                     <View className="keyboard-type">123</View> :
-                    <View>abc<View>
+                    <View className="keyboard-type">abc</View>
                 }
                 {navigationPadEnabled &&
                     <NavigationPad
@@ -216,7 +216,7 @@ const KeypadContainer = React.createClass({
                     {this.renderKeypad()}
                 </View>
             </View>
-        </View>;
+        </View>
     },
 });
 
