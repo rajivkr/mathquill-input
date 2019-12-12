@@ -5,6 +5,7 @@ const {StyleSheet} = require('aphrodite');
 const {View} = require('../fake-react-native-web');
 const FractionKeypad = require('./fraction-keypad');
 const ExpressionKeypad = require('./expression-keypad');
+const AlphabetKeypad = require('./alphabet-keypad');
 const NavigationPad = require('./navigation-pad');
 const zIndexes = require('./z-indexes');
 const {setPageSize} = require('../actions');
@@ -131,13 +132,15 @@ const KeypadContainer = React.createClass({
         // However, the keyboards differ pretty heavily right now and it's not
         // clear what that format would look like exactly. Plus, there aren't
         // very many of them. So to keep us moving, we'll just hardcode.
-        console.log('keypadtype',keypadType);
         switch (keypadType) {
             case KeypadTypes.FRACTION:
                 return <FractionKeypad {...keypadProps} />;
 
             case KeypadTypes.EXPRESSION:
                 return <ExpressionKeypad {...keypadProps} />;
+
+            case KeypadTypes.ALPHABETS:
+                return <AlphabetKeypad {..keypadProps} />;
 
             default:
                 throw new Error("Invalid keypad type: " + keypadType);
@@ -196,9 +199,10 @@ const KeypadContainer = React.createClass({
                         this.hasMounted = true;
                         onElementMounted(element);
                     }
-                    
+
                 }}
             >
+                <View extraClassName="keyboard-type">{this.props.keypadType == KeypadTypes.ALPHABETS ? <View>123</View> : <View>abc</View>}</View>
                 {navigationPadEnabled &&
                     <NavigationPad
                         roundTopLeft={layoutMode === LayoutModes.COMPACT}
