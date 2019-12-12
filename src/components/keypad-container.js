@@ -131,6 +131,7 @@ const KeypadContainer = React.createClass({
         // However, the keyboards differ pretty heavily right now and it's not
         // clear what that format would look like exactly. Plus, there aren't
         // very many of them. So to keep us moving, we'll just hardcode.
+        console.log('keypadtype',keypadType);
         switch (keypadType) {
             case KeypadTypes.FRACTION:
                 return <FractionKeypad {...keypadProps} />;
