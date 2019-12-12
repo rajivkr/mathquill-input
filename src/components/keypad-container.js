@@ -202,7 +202,7 @@ const KeypadContainer = React.createClass({
 
                 }}
             >
-                <View extraClassName="keyboard-type">{this.props.keypadType == KeypadTypes.ALPHABETS ? '123' : 'abc'}</View>
+                <View extraClassName="keyboard-type">{this.props.keypadType == KeypadTypes.ALPHABETS ? <View>123</View> : <View>abc</View>}</View>
                 {navigationPadEnabled &&
                     <NavigationPad
                         roundTopLeft={layoutMode === LayoutModes.COMPACT}
