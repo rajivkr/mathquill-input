@@ -17,6 +17,7 @@ var _require3 = require('../fake-react-native-web'),
 
 var FractionKeypad = require('./fraction-keypad');
 var ExpressionKeypad = require('./expression-keypad');
+var AlphabetKeypad = require('./alphabet-keypad');
 var NavigationPad = require('./navigation-pad');
 var zIndexes = require('./z-indexes');
 
@@ -152,6 +153,9 @@ var KeypadContainer = React.createClass({
             case KeypadTypes.EXPRESSION:
                 return React.createElement(ExpressionKeypad, keypadProps);
 
+            case KeypadTypes.ALPHABETS:
+                return React.createElement(AlphabetKeypad, keypadProps);
+
             default:
                 throw new Error("Invalid keypad type: " + keypadType);
         }
@@ -202,6 +206,15 @@ var KeypadContainer = React.createClass({
                         }
                     }
                 },
+                this.props.keypadType == KeypadTypes.ALPHABETS ? React.createElement(
+                    View,
+                    { className: 'keyboard-type' },
+                    '123'
+                ) : React.createElement(
+                    View,
+                    { className: 'keyboard-type' },
+                    'abc'
+                ),
                 navigationPadEnabled && React.createElement(NavigationPad, {
                     roundTopLeft: layoutMode === LayoutModes.COMPACT,
                     style: styles.navigationPadContainer
