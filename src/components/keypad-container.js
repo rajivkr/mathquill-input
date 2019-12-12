@@ -270,14 +270,14 @@ const styles = StyleSheet.create({
         flexBasis: '0%',
     },
     keyboardType: {
-      position: 'absolute !important';
-      zIndex: '1';
-      top: '-30px';
-      border: '1px solid rgba(0, 0, 0, 0.2) !important';
-      borderRadius: '5px';
-      left: '4px';
-      backgroundColor: '#F0F1F2 !important';
-      width: '37px';
+      position: 'absolute !important',
+      zIndex: '1',
+      top: '-30px',
+      border: '1px solid rgba(0, 0, 0, 0.2) !important',
+      borderRadius: '5px',
+      left: '4px',
+      backgroundColor: '#F0F1F2 !important',
+      width: '37px',
     }
 });
 

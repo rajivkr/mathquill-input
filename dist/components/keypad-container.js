@@ -208,11 +208,11 @@ var KeypadContainer = React.createClass({
                 },
                 this.props.keypadType == KeypadTypes.ALPHABETS ? React.createElement(
                     View,
-                    { className: 'keyboard-type' },
+                    { style: styles.keyboardType },
                     '123'
                 ) : React.createElement(
                     View,
-                    { className: 'keyboard-type' },
+                    { style: styles.keyboardType },
                     'abc'
                 ),
                 navigationPadEnabled && React.createElement(NavigationPad, {
@@ -276,6 +276,16 @@ var styles = StyleSheet.create({
         flexGrow: 1,
         // Avoid unitless flex-basis, per: https://philipwalton.com/articles/normalizing-cross-browser-flexbox-bugs/
         flexBasis: '0%'
+    },
+    keyboardType: {
+        position: 'absolute !important',
+        zIndex: '1',
+        top: '-30px',
+        border: '1px solid rgba(0, 0, 0, 0.2) !important',
+        borderRadius: '5px',
+        left: '4px',
+        backgroundColor: '#F0F1F2 !important',
+        width: '37px'
     }
 });
 
