@@ -20,13 +20,13 @@ const App = React.createClass({
         const {extraKeys, focusCallback, blurCallback} = this.props
 
         return <View>
-            <div style={{margin: 3, marginTop: 5}}>
+            <div style={{margin: 3, marginTop: 5, marginBottom: 98}}>
                 <KeypadInput
                     value={this.state.value}
                     keypadElement={this.state.keypadElement}
                     ref={ref => this.keypadInput = ref}
-                    onChange={(value, cb) => { 
-                        this.setState({value}, cb); 
+                    onChange={(value, cb) => {
+                        this.setState({value}, cb);
                         var mydiv = document.getElementById(this.props.containerid);
                         mydiv.setAttribute("math-input-value", {value}.value); } }
                     onFocus={() => {

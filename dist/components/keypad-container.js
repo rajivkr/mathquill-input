@@ -240,7 +240,8 @@ var styles = StyleSheet.create({
         position: 'fixed',
         transition: keypadAnimationDurationMs + 'ms ease-out',
         transitionProperty: 'transform',
-        zIndex: zIndexes.keypad
+        zIndex: zIndexes.keypad,
+        display: 'block !important'
     },
 
     keypadBorder: {

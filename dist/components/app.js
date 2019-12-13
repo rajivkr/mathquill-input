@@ -38,7 +38,7 @@ var App = React.createClass({
             null,
             React.createElement(
                 'div',
-                { style: { margin: 3, marginTop: 5 } },
+                { style: { margin: 3, marginTop: 5, marginBottom: 98 } },
                 React.createElement(KeypadInput, {
                     value: this.state.value,
                     keypadElement: this.state.keypadElement,

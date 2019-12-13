@@ -232,6 +232,7 @@ const styles = StyleSheet.create({
         transition: `${keypadAnimationDurationMs}ms ease-out`,
         transitionProperty: 'transform',
         zIndex: zIndexes.keypad,
+        display: 'block !important',
     },
 
     keypadBorder: {
