@@ -5,7 +5,6 @@ const {StyleSheet} = require('aphrodite');
 const {View} = require('../fake-react-native-web');
 const FractionKeypad = require('./fraction-keypad');
 const ExpressionKeypad = require('./expression-keypad');
-const AlphabetKeypad = require('./alphabet-keypad');
 const NavigationPad = require('./navigation-pad');
 const zIndexes = require('./z-indexes');
 const {setPageSize} = require('../actions');
@@ -138,9 +137,6 @@ const KeypadContainer = React.createClass({
 
             case KeypadTypes.EXPRESSION:
                 return <ExpressionKeypad {...keypadProps} />;
-
-            case KeypadTypes.ALPHABETS:
-                return <AlphabetKeypad {...keypadProps} />;
 
             default:
                 throw new Error("Invalid keypad type: " + keypadType);
