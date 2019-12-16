@@ -165,6 +165,8 @@ var createStore = function createStore() {
                 });
 
             case 'ToggleKeyType':
+                var numPad = action.numPad;
+
                 return _extends({}, state, {
                     numPad: numPad
                 });
@@ -457,10 +459,10 @@ var createStore = function createStore() {
                 });
 
             case 'ToggleKeyType':
-                var _numPad = action.numPad;
+                var numPad = action.numPad;
 
                 return _extends({}, state, {
-                    numPad: _numPad
+                    numPad: numPad
                 });
 
             default:
