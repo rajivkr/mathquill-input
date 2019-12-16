@@ -57,6 +57,7 @@ var KeypadContainer = React.createClass({
         onElementMounted: React.PropTypes.func,
         onPageSizeChange: React.PropTypes.func.isRequired,
         toggleNumAlphabets: React.PropTypes.func.isRequired,
+        numPad: React.PropTypes.bool.isRequired,
         style: React.PropTypes.any
     },
 
