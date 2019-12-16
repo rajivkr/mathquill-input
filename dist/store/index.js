@@ -31,9 +31,8 @@ var VelocityTracker = require('../components/velocity-tracker');
 
 var FractionKeypad = require('../components/fraction-keypad');
 var ExpressionKeypad = require('../components/expression-keypad');
-var AlphabetKeypad = require('../components/alphabet-keypad');
 
-var keypadForType = (_keypadForType = {}, _defineProperty(_keypadForType, KeypadTypes.FRACTION, FractionKeypad), _defineProperty(_keypadForType, KeypadTypes.EXPRESSION, ExpressionKeypad), _defineProperty(_keypadForType, KeypadTypes.ALPHABETS, AlphabetKeypad), _keypadForType);
+var keypadForType = (_keypadForType = {}, _defineProperty(_keypadForType, KeypadTypes.FRACTION, FractionKeypad), _defineProperty(_keypadForType, KeypadTypes.EXPRESSION, ExpressionKeypad), _keypadForType);
 
 var createStore = function createStore() {
     var initialInputState = {
