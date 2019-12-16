@@ -44,7 +44,7 @@ module.exports = {
     toggleKeyType(numPad) {
       return {
         type: 'ToggleKeyType',
-        numPad: numPad,
+        numPad,
       }
     },
 
