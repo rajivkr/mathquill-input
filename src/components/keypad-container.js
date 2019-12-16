@@ -145,6 +145,11 @@ const KeypadContainer = React.createClass({
         }
     },
 
+    togglePad(e) {
+      e.preventDefault();
+      this.props.toggleNumAlphabets(!this.props.numPad);
+    },
+
     render() {
         // console.log('keypad-container render')
         const {
@@ -201,8 +206,8 @@ const KeypadContainer = React.createClass({
                 }}
             >
                 {this.props.numPad == false ?
-                    <View style={styles.keyboardType} onClick={this.props.toggleNumAlphabets(true)}>123</View> :
-                    <View style={styles.keyboardType} onClick={this.props.toggleNumAlphabets(false)}>abc</View>
+                    <View style={styles.keyboardType} onClick={this.togglePad}>123</View> :
+                    <View style={styles.keyboardType} onClick={this.togglePad}>abc</View>
                 }
                 {navigationPadEnabled &&
                     <NavigationPad
