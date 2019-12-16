@@ -21,7 +21,8 @@ var NavigationPad = require('./navigation-pad');
 var zIndexes = require('./z-indexes');
 
 var _require4 = require('../actions'),
-    setPageSize = _require4.setPageSize;
+    setPageSize = _require4.setPageSize,
+    toggleKeyType = _require4.toggleKeyType;
 
 var _require5 = require('./prop-types'),
     keyIdPropType = _require5.keyIdPropType;
@@ -55,6 +56,7 @@ var KeypadContainer = React.createClass({
         // mount.
         onElementMounted: React.PropTypes.func,
         onPageSizeChange: React.PropTypes.func.isRequired,
+        toggleNumAlphabets: React.PropTypes.func.isRequired,
         style: React.PropTypes.any
     },
 
@@ -202,16 +204,16 @@ var KeypadContainer = React.createClass({
                         }
                     }
                 },
-                this.props.keypadType == KeypadTypes.ALPHABETS ? React.createElement(
+                this.props.numPad == false ? React.createElement(
                     View,
-                    { style: styles.keyboardType },
+                    { style: styles.keyboardType, onClick: this.props.toggleNumAlphabets(true) },
                     '123'
                 ) : React.createElement(
                     View,
-                    { style: styles.keyboardType },
+                    { style: styles.keyboardType, onClick: this.props.toggleNumAlphabets(false) },
                     'abc'
                 ),
-                React.createElement(NavigationPad, {
+                navigationPadEnabled && React.createElement(NavigationPad, {
                     roundTopLeft: layoutMode === LayoutModes.COMPACT,
                     style: styles.navigationPadContainer
                 }),
@@ -311,7 +313,8 @@ var inlineStyles = {
 var mapStateToProps = function mapStateToProps(state, ownProps) {
     return _extends({}, state.keypad, {
         layoutMode: state.layout.layoutMode,
-        navigationPadEnabled: state.layout.navigationPadEnabled
+        navigationPadEnabled: state.layout.navigationPadEnabled,
+        numPad: state.layout.numPad
     }, ownProps);
 };
 
@@ -319,6 +322,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
         onPageSizeChange: function onPageSizeChange(pageWidthPx, pageHeightPx) {
             dispatch(setPageSize(pageWidthPx, pageHeightPx));
+        },
+        toggleNumAlphabets: function toggleNumAlphabets(numPadChange) {
+            dispatch(toggleKeyType(numPadChange));
         }
     };
 };

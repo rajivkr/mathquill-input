@@ -41,6 +41,13 @@ module.exports = {
         };
     },
 
+    toggleKeyType(numPad) {
+      return {
+        type: 'ToggleKeyType',
+        numPad: numPad,
+      }
+    },
+
     removeEcho(animationId) {
         return {
             type: 'RemoveEcho',

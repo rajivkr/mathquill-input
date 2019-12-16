@@ -139,7 +139,8 @@ var createStore = function createStore() {
         dx: 0,
         numPages: keypadForType[defaultKeypadType].numPages,
         pageWidthPx: 0,
-        velocityTracker: new VelocityTracker()
+        velocityTracker: new VelocityTracker(),
+        numPad: true
     };
 
     var pagerReducer = function pagerReducer() {
@@ -161,6 +162,11 @@ var createStore = function createStore() {
             case 'SetPageSize':
                 return _extends({}, state, {
                     pageWidthPx: action.pageWidthPx
+                });
+
+            case 'ToggleKeyType':
+                return _extends({}, state, {
+                    numPad: numPad
                 });
 
             case 'PressKey':
@@ -377,7 +383,8 @@ var createStore = function createStore() {
         },
         layoutMode: LayoutModes.FULLSCREEN,
         paginationEnabled: false,
-        navigationPadEnabled: false
+        navigationPadEnabled: false,
+        numPad: true
     };
 
     /**
@@ -447,6 +454,11 @@ var createStore = function createStore() {
 
                 return _extends({}, state, layoutParametersForDimensions(pageDimensions, state.gridDimensions), {
                     pageDimensions: pageDimensions
+                });
+
+            case 'ToggleKeyType':
+                return _extends({}, state, {
+                    numPad: numPad
                 });
 
             default:
