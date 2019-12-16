@@ -52,7 +52,6 @@ var FractionKeypad = React.createClass({
     },
 
     render: function render() {
-        console.log('dddd', KeyConfigs);
         var _props = this.props,
             cursorContext = _props.cursorContext,
             dynamicJumpOut = _props.dynamicJumpOut,
