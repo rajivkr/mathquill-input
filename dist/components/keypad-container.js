@@ -211,7 +211,7 @@ var KeypadContainer = React.createClass({
                     { style: styles.keyboardType },
                     'abc'
                 ),
-                navigationPadEnabled && React.createElement(NavigationPad, {
+                React.createElement(NavigationPad, {
                     roundTopLeft: layoutMode === LayoutModes.COMPACT,
                     style: styles.navigationPadContainer
                 }),
@@ -296,9 +296,9 @@ var inlineStyles = {
     },
 
     hidden: {
-        msTransform: 'translate3d(0, 100%, 0)',
-        WebkitTransform: 'translate3d(0, 100%, 0)',
-        transform: 'translate3d(0, 100%, 0)'
+        msTransform: 'translate3d(0, 200%, 0)',
+        WebkitTransform: 'translate3d(0, 200%, 0)',
+        transform: 'translate3d(0, 200%, 0)'
     },
 
     active: {
