@@ -18,12 +18,10 @@ const VelocityTracker = require('../components/velocity-tracker');
 
 const FractionKeypad = require('../components/fraction-keypad');
 const ExpressionKeypad = require('../components/expression-keypad');
-const AlphabetKeypad = require('../components/alphabet-keypad');
 
 const keypadForType = {
     [KeypadTypes.FRACTION]: FractionKeypad,
     [KeypadTypes.EXPRESSION]: ExpressionKeypad,
-    [KeypadTypes.ALPHABETS]: AlphabetKeypad,
 };
 
 const createStore = () => {

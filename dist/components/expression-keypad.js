@@ -64,6 +64,7 @@ var ExpressionKeypad = React.createClass({
     },
 
     render: function render() {
+        console.log('ffff', KeyConfigs);
         var _props = this.props,
             currentPage = _props.currentPage,
             cursorContext = _props.cursorContext,
