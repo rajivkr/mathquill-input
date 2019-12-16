@@ -129,6 +129,7 @@ const createStore = () => {
         numPages: keypadForType[defaultKeypadType].numPages,
         pageWidthPx: 0,
         velocityTracker: new VelocityTracker(),
+        numPad: true,
     };
 
     const pagerReducer = function(state = initialPagerState, action) {
@@ -148,6 +149,12 @@ const createStore = () => {
                 return {
                     ...state,
                     pageWidthPx: action.pageWidthPx,
+                };
+
+            case 'ToggleKeyType':
+                return {
+                  ...state,
+                  numPad,
                 };
 
             case 'PressKey':
@@ -386,6 +393,7 @@ const createStore = () => {
         layoutMode: LayoutModes.FULLSCREEN,
         paginationEnabled: false,
         navigationPadEnabled: false,
+        numPad: true,
     };
 
     /**
@@ -466,6 +474,12 @@ const createStore = () => {
                         pageDimensions, state.gridDimensions
                     ),
                     pageDimensions,
+                };
+
+            case 'ToggleKeyType':
+                return {
+                  ...state,
+                  numPad,
                 };
 
             default:

@@ -40,6 +40,12 @@ module.exports = {
             pageHeightPx: pageHeightPx
         };
     },
+    toggleKeyType: function toggleKeyType(numPad) {
+        return {
+            type: 'ToggleKeyType',
+            numPad: numPad
+        };
+    },
     removeEcho: function removeEcho(animationId) {
         return {
             type: 'RemoveEcho',

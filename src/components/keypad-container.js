@@ -7,7 +7,7 @@ const FractionKeypad = require('./fraction-keypad');
 const ExpressionKeypad = require('./expression-keypad');
 const NavigationPad = require('./navigation-pad');
 const zIndexes = require('./z-indexes');
-const {setPageSize} = require('../actions');
+const {setPageSize, toggleKeyType} = require('../actions');
 const {keyIdPropType} = require('./prop-types');
 const {KeypadTypes, LayoutModes} = require('../consts');
 const {row, centered, fullWidth} = require('./styles');
@@ -30,6 +30,7 @@ const KeypadContainer = React.createClass({
         // mount.
         onElementMounted: React.PropTypes.func,
         onPageSizeChange: React.PropTypes.func.isRequired,
+        toggleNumAlphabets: React.PropTypes.func.isRequired,
         style: React.PropTypes.any,
     },
 
@@ -198,14 +199,16 @@ const KeypadContainer = React.createClass({
 
                 }}
             >
-                {this.props.keypadType == KeypadTypes.ALPHABETS ?
-                    <View style={styles.keyboardType}>123</View> :
-                    <View style={styles.keyboardType}>abc</View>
+                {this.props.numPad == false ?
+                    <View style={styles.keyboardType} onClick={this.props.toggleNumAlphabets(true)}>123</View> :
+                    <View style={styles.keyboardType} onClick={this.props.toggleNumAlphabets(false)}>abc</View>
                 }
-                <NavigationPad
-                    roundTopLeft={layoutMode === LayoutModes.COMPACT}
-                    style={styles.navigationPadContainer}
-                />
+                {navigationPadEnabled &&
+                    <NavigationPad
+                        roundTopLeft={layoutMode === LayoutModes.COMPACT}
+                        style={styles.navigationPadContainer}
+                    />
+                }
                 <View style={styles.keypadLayout}>
                     {this.renderKeypad()}
                 </View>
@@ -303,6 +306,7 @@ const mapStateToProps = (state, ownProps) => {
         ...state.keypad,
         layoutMode: state.layout.layoutMode,
         navigationPadEnabled: state.layout.navigationPadEnabled,
+        numPad: state.layout.numPad,
         ...ownProps
     };
 };
@@ -311,6 +315,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onPageSizeChange: (pageWidthPx, pageHeightPx) => {
             dispatch(setPageSize(pageWidthPx, pageHeightPx));
+        },
+        toggleNumAlphabets: (numPadChange) => {
+            dispatch(toggleKeyType(numPadChange));
         },
     };
 };
