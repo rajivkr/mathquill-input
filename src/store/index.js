@@ -477,6 +477,7 @@ const createStore = () => {
                 };
 
             case 'ToggleKeyType':
+                const {numPad} = action;
                 return {
                   ...state,
                   numPad,
