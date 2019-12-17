@@ -23,6 +23,7 @@ const {valueGrey, controlGrey} = require('./common-style');
 const {cursorContextPropType, keyIdPropType} = require('./prop-types');
 const KeyConfigs = require('../data/key-configs');
 const CursorContexts = require('./input/cursor-contexts');
+const {toggleKeyType} = require('../actions');
 
 const ExpressionKeypad = React.createClass({
     propTypes: {
@@ -32,6 +33,8 @@ const ExpressionKeypad = React.createClass({
         extraKeys: React.PropTypes.arrayOf(keyIdPropType),
         roundTopLeft: React.PropTypes.bool,
         roundTopRight: React.PropTypes.bool,
+        toggleNumAlphabets: React.PropTypes.func.isRequired,
+        numPad: React.PropTypes.bool.isRequired,
     },
 
     statics: {
@@ -42,6 +45,11 @@ const ExpressionKeypad = React.createClass({
         // contains more than four children.
         maxVisibleRows: 4,
         numPages: 2,
+    },
+
+    togglePad(e) {
+        e.preventDefault();
+        this.props.toggleNumAlphabets(!this.props.numPad);
     },
 
     render() {
@@ -175,7 +183,10 @@ const ExpressionKeypad = React.createClass({
                     keyConfig={KeyConfigs.FRAC_INCLUSIVE}
                     style={roundTopRight && roundedTopRight}
                 />
-                <TouchableKeypadButton keyConfig={KeyConfigs.CDOT} />
+                {this.props.numPad == false ?
+                    <View style={styles.keyboardType} onClick={this.togglePad}>123</View> :
+                    <View style={styles.keyboardType} onClick={this.togglePad}>abc</View>
+                }
                 <TouchableKeypadButton
                     keyConfig={KeyConfigs.BACKSPACE}
                     borders={BorderStyles.LEFT}
@@ -312,7 +323,16 @@ const mapStateToProps = (state) => {
         currentPage: state.pager.currentPage,
         cursorContext: state.input.cursor.context,
         dynamicJumpOut: !state.layout.navigationPadEnabled,
+        numPad: state.layout.numPad,
     };
 };
 
-module.exports = connect(mapStateToProps)(ExpressionKeypad);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        toggleNumAlphabets: (numPadChange) => {
+            dispatch(toggleKeyType(numPadChange));
+        },
+    };
+};
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(ExpressionKeypad);

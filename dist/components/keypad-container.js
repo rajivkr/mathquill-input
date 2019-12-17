@@ -159,10 +159,6 @@ var KeypadContainer = React.createClass({
                 throw new Error("Invalid keypad type: " + keypadType);
         }
     },
-    togglePad: function togglePad(e) {
-        e.preventDefault();
-        this.props.toggleNumAlphabets(!this.props.numPad);
-    },
     render: function render() {
         var _this2 = this;
 
@@ -209,15 +205,6 @@ var KeypadContainer = React.createClass({
                         }
                     }
                 },
-                this.props.numPad == false ? React.createElement(
-                    View,
-                    { style: styles.keyboardType, onClick: this.togglePad },
-                    '123'
-                ) : React.createElement(
-                    View,
-                    { style: styles.keyboardType, onClick: this.togglePad },
-                    'abc'
-                ),
                 navigationPadEnabled && React.createElement(NavigationPad, {
                     roundTopLeft: layoutMode === LayoutModes.COMPACT,
                     style: styles.navigationPadContainer
@@ -318,8 +305,7 @@ var inlineStyles = {
 var mapStateToProps = function mapStateToProps(state, ownProps) {
     return _extends({}, state.keypad, {
         layoutMode: state.layout.layoutMode,
-        navigationPadEnabled: state.layout.navigationPadEnabled,
-        numPad: state.layout.numPad
+        navigationPadEnabled: state.layout.navigationPadEnabled
     }, ownProps);
 };
 

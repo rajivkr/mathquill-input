@@ -41,6 +41,9 @@ var _require7 = require('./prop-types'),
 var KeyConfigs = require('../data/key-configs');
 var CursorContexts = require('./input/cursor-contexts');
 
+var _require8 = require('../actions'),
+    toggleKeyType = _require8.toggleKeyType;
+
 var ExpressionKeypad = React.createClass({
     displayName: 'ExpressionKeypad',
 
@@ -50,7 +53,9 @@ var ExpressionKeypad = React.createClass({
         dynamicJumpOut: React.PropTypes.bool,
         extraKeys: React.PropTypes.arrayOf(keyIdPropType),
         roundTopLeft: React.PropTypes.bool,
-        roundTopRight: React.PropTypes.bool
+        roundTopRight: React.PropTypes.bool,
+        toggleNumAlphabets: React.PropTypes.func.isRequired,
+        numPad: React.PropTypes.bool.isRequired
     },
 
     statics: {
@@ -63,6 +68,10 @@ var ExpressionKeypad = React.createClass({
         numPages: 2
     },
 
+    togglePad: function togglePad(e) {
+        e.preventDefault();
+        this.props.toggleNumAlphabets(!this.props.numPad);
+    },
     render: function render() {
         console.log('ffff', KeyConfigs);
         var _props = this.props,
@@ -201,7 +210,15 @@ var ExpressionKeypad = React.createClass({
                     keyConfig: KeyConfigs.FRAC_INCLUSIVE,
                     style: roundTopRight && roundedTopRight
                 }),
-                React.createElement(TouchableKeypadButton, { keyConfig: KeyConfigs.CDOT }),
+                this.props.numPad == false ? React.createElement(
+                    View,
+                    { style: styles.keyboardType, onClick: this.togglePad },
+                    '123'
+                ) : React.createElement(
+                    View,
+                    { style: styles.keyboardType, onClick: this.togglePad },
+                    'abc'
+                ),
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.BACKSPACE,
                     borders: BorderStyles.LEFT
@@ -344,8 +361,17 @@ var mapStateToProps = function mapStateToProps(state) {
     return {
         currentPage: state.pager.currentPage,
         cursorContext: state.input.cursor.context,
-        dynamicJumpOut: !state.layout.navigationPadEnabled
+        dynamicJumpOut: !state.layout.navigationPadEnabled,
+        numPad: state.layout.numPad
     };
 };
 
-module.exports = connect(mapStateToProps)(ExpressionKeypad);
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        toggleNumAlphabets: function toggleNumAlphabets(numPadChange) {
+            dispatch(toggleKeyType(numPadChange));
+        }
+    };
+};
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(ExpressionKeypad);
