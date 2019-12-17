@@ -48,12 +48,12 @@ var MultiSymbolGrid = React.createClass({
         // variables and Greek letters, which are always rendered as math).
         // Supporting other types of icons is possible but would require
         // some styles coercion and doesn't seem worthwhile right now.
-
-        icons.forEach(function (icon) {
-            if (icon.type !== IconTypes.MATH) {
-                throw new Error('Received invalid icon: type=' + icon.type + ', ' + ('data=' + icon.data));
-            }
-        });
+        // icons.forEach(icon => {
+        //     if (icon.type !== IconTypes.MATH) {
+        //         throw new Error(`Received invalid icon: type=${icon.type}, ` +
+        //             `data=${icon.data}`);
+        //     }
+        // });
 
         if (icons.length === 1) {
             return React.createElement(Icon, { icon: icons[0], focused: focused });
