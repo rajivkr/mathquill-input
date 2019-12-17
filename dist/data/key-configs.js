@@ -646,7 +646,7 @@ try {
                 type: KeyTypes.VALUE,
                 ariaLabel: _textRepresentation,
                 icon: {
-                    type: IconTypes.MATH,
+                    type: IconTypes.TEXT,
                     data: _textRepresentation
                 }
             };
