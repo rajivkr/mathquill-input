@@ -108,15 +108,15 @@ const ExpressionKeypad = React.createClass({
         const rightPage = <View style={rightPageStyle}>
             <View style={[column, oneColumn]}>
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.NUM_7}
+                    keyConfig={this.props.numPad == true ? KeyConfigs.NUM_7 : KeyConfigs.a}
                     borders={BorderStyles.NONE}
                 />
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.NUM_4}
+                    keyConfig={this.props.numPad == true ? KeyConfigs.NUM_4 : KeyConfigs.x}
                     borders={BorderStyles.NONE}
                 />
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.NUM_1}
+                    keyConfig={this.props.numPad == true ? KeyConfigs.NUM_1 : KeyConfigs.p}
                     borders={BorderStyles.BOTTOM}
                 />
                 <ManyKeypadButton
@@ -126,33 +126,33 @@ const ExpressionKeypad = React.createClass({
             </View>
             <View style={[column, oneColumn]}>
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.NUM_8}
+                    keyConfig={this.props.numPad == true ? KeyConfigs.NUM_8 : KeyConfigs.b}
                     borders={BorderStyles.NONE}
                 />
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.NUM_5}
+                    keyConfig={this.props.numPad == true ? KeyConfigs.NUM_5 : KeyConfigs.y}
                     borders={BorderStyles.NONE}
                 />
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.NUM_2}
+                    keyConfig={this.props.numPad == true ? KeyConfigs.NUM_2 : KeyConfigs.q}
                     borders={BorderStyles.NONE}
                 />
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.NUM_0}
+                    keyConfig={this.props.numPad == true ? KeyConfigs.NUM_0 : KeyConfigs.s}
                     borders={BorderStyles.LEFT}
                 />
             </View>
             <View style={[column, oneColumn]}>
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.NUM_9}
+                    keyConfig={this.props.numPad == true ? KeyConfigs.NUM_9 : KeyConfigs.c}
                     borders={BorderStyles.NONE}
                 />
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.NUM_6}
+                    keyConfig={this.props.numPad == true ? KeyConfigs.NUM_6 : KeyConfigs.z}
                     borders={BorderStyles.NONE}
                 />
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.NUM_3}
+                    keyConfig={this.props.numPad == true ? KeyConfigs.NUM_3 : KeyConfigs.r}
                     borders={BorderStyles.BOTTOM}
                 />
                 <TouchableKeypadButton
@@ -315,6 +315,14 @@ const styles = StyleSheet.create({
 
     leftPage: {
         backgroundColor: controlGrey,
+    },
+
+    keyboardType: {
+      padding: '9px 0px !important',
+      textAlign: 'center !important',
+      backgroundColor: '#FAFAFA !important',
+      border: '1px solid #D6D8DA !important',
+      cursor: 'pointer',
     },
 });
 
