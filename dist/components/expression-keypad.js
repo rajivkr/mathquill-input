@@ -127,15 +127,15 @@ var ExpressionKeypad = React.createClass({
                 View,
                 { style: [column, oneColumn] },
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.NUM_7,
+                    keyConfig: this.props.numPad == true ? KeyConfigs.NUM_7 : KeyConfigs.a,
                     borders: BorderStyles.NONE
                 }),
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.NUM_4,
+                    keyConfig: this.props.numPad == true ? KeyConfigs.NUM_4 : KeyConfigs.x,
                     borders: BorderStyles.NONE
                 }),
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.NUM_1,
+                    keyConfig: this.props.numPad == true ? KeyConfigs.NUM_1 : KeyConfigs.p,
                     borders: BorderStyles.BOTTOM
                 }),
                 React.createElement(ManyKeypadButton, {
@@ -147,19 +147,19 @@ var ExpressionKeypad = React.createClass({
                 View,
                 { style: [column, oneColumn] },
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.NUM_8,
+                    keyConfig: this.props.numPad == true ? KeyConfigs.NUM_8 : KeyConfigs.b,
                     borders: BorderStyles.NONE
                 }),
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.NUM_5,
+                    keyConfig: this.props.numPad == true ? KeyConfigs.NUM_5 : KeyConfigs.y,
                     borders: BorderStyles.NONE
                 }),
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.NUM_2,
+                    keyConfig: this.props.numPad == true ? KeyConfigs.NUM_2 : KeyConfigs.q,
                     borders: BorderStyles.NONE
                 }),
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.NUM_0,
+                    keyConfig: this.props.numPad == true ? KeyConfigs.NUM_0 : KeyConfigs.s,
                     borders: BorderStyles.LEFT
                 })
             ),
@@ -167,15 +167,15 @@ var ExpressionKeypad = React.createClass({
                 View,
                 { style: [column, oneColumn] },
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.NUM_9,
+                    keyConfig: this.props.numPad == true ? KeyConfigs.NUM_9 : KeyConfigs.c,
                     borders: BorderStyles.NONE
                 }),
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.NUM_6,
+                    keyConfig: this.props.numPad == true ? KeyConfigs.NUM_6 : KeyConfigs.z,
                     borders: BorderStyles.NONE
                 }),
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.NUM_3,
+                    keyConfig: this.props.numPad == true ? KeyConfigs.NUM_3 : KeyConfigs.r,
                     borders: BorderStyles.BOTTOM
                 }),
                 React.createElement(TouchableKeypadButton, {
@@ -354,6 +354,14 @@ var styles = StyleSheet.create({
 
     leftPage: {
         backgroundColor: controlGrey
+    },
+
+    keyboardType: {
+        padding: '9px 0px !important',
+        textAlign: 'center !important',
+        backgroundColor: '#FAFAFA !important',
+        border: '1px solid #D6D8DA !important',
+        cursor: 'pointer'
     }
 });
 
