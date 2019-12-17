@@ -34,7 +34,7 @@ const ExpressionKeypad = React.createClass({
         roundTopLeft: React.PropTypes.bool,
         roundTopRight: React.PropTypes.bool,
         toggleNumAlphabets: React.PropTypes.func.isRequired,
-        numPad: React.PropTypes.bool,
+        numPad: React.PropTypes.bool.isRequired,
     },
 
     statics: {
