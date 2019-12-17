@@ -718,7 +718,7 @@ for (const letter of LETTERS) {
             type: KeyTypes.VALUE,
             ariaLabel: textRepresentation,
             icon: {
-                type: IconTypes.MATH,
+                type: IconTypes.TEXT,
                 data: textRepresentation,
             },
         };
