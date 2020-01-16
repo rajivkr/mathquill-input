@@ -8,7 +8,6 @@ const {StyleSheet} = require('aphrodite');
 
 const {View} = require('../fake-react-native-web');
 const TwoPageKeypad = require('./two-page-keypad');
-const ManyKeypadButton = require('./many-keypad-button');
 const TouchableKeypadButton = require('./touchable-keypad-button');
 const {
     row,
@@ -119,10 +118,10 @@ const ExpressionKeypad = React.createClass({
                     keyConfig={this.props.numPad == true ? KeyConfigs.NUM_1 : KeyConfigs.p}
                     borders={BorderStyles.BOTTOM}
                 />
-                <ManyKeypadButton
-                    keys={extraKeys}
-                    borders={BorderStyles.NONE}
-                />
+                {this.props.numPad == false ?
+                    <View style={styles.keyboardType} onClick={this.togglePad}>123</View> :
+                    <View style={styles.keyboardType} onClick={this.togglePad}>abc</View>
+                }
             </View>
             <View style={[column, oneColumn]}>
                 <TouchableKeypadButton
@@ -180,19 +179,11 @@ const ExpressionKeypad = React.createClass({
             </View>
             <View style={[column, oneColumn]}>
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.FRAC_INCLUSIVE}
-                    style={roundTopRight && roundedTopRight}
+                    keyConfig={KeyConfigs.RIGHT}
+                    borders={BorderStyles.NONE}
                 />
-                {this.props.numPad == false ?
-                    <View style={styles.keyboardType} onClick={this.togglePad}>123</View> :
-                    <View style={styles.keyboardType} onClick={this.togglePad}>abc</View>
-                }
                 <TouchableKeypadButton
                     keyConfig={KeyConfigs.BACKSPACE}
-                    borders={BorderStyles.LEFT}
-                />
-                <TouchableKeypadButton
-                    keyConfig={dismissOrJumpOutKey}
                     borders={BorderStyles.LEFT}
                 />
             </View>
@@ -220,7 +211,7 @@ const ExpressionKeypad = React.createClass({
                     borders={BorderStyles.BOTTOM}
                 />
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.SIN}
+                    keyConfig={KeyConfigs.PI}
                     borders={BorderStyles.NONE}
                 />
             </View>
@@ -238,7 +229,7 @@ const ExpressionKeypad = React.createClass({
                     borders={BorderStyles.BOTTOM}
                 />
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.COS}
+                    keyConfig={KeyConfigs.DEGREE}
                     borders={BorderStyles.NONE}
                 />
             </View>
@@ -256,8 +247,8 @@ const ExpressionKeypad = React.createClass({
                     borders={BorderStyles.BOTTOM}
                 />
                 <TouchableKeypadButton
-                    keyConfig={KeyConfigs.TAN}
-                    borders={BorderStyles.NONE}
+                    keyConfig={KeyConfigs.FRAC_INCLUSIVE}
+                    style={BorderStyles.NONE}
                 />
             </View>
             <View style={[column, oneColumn]}>
