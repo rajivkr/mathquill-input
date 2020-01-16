@@ -40,7 +40,7 @@ const MathIcon = React.createClass({
     },
 
     render() {
-        const {style} = this.props;
+        const {style, math} = this.props;
 
         const containerStyle = [
             row,
@@ -50,7 +50,11 @@ const MathIcon = React.createClass({
             ...(Array.isArray(style) ? style : [style]),
         ];
 
-        return <View style={containerStyle} />;
+        return (
+            <View style={containerStyle}>
+              {math.indexOf("circ") ? '°' : math.indexOf("pi") ? 'π' : ''}
+            </View>
+        );
     },
 });
 

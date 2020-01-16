@@ -53,12 +53,18 @@ var MathIcon = React.createClass({
         }
     },
     render: function render() {
-        var style = this.props.style;
+        var _props = this.props,
+            style = _props.style,
+            math = _props.math;
 
 
         var containerStyle = [row, centered, styles.size, styles.base].concat(_toConsumableArray(Array.isArray(style) ? style : [style]));
 
-        return React.createElement(View, { style: containerStyle });
+        return React.createElement(
+            View,
+            { style: containerStyle },
+            math.indexOf("circ") ? '°' : math.indexOf("pi") ? 'π' : ''
+        );
     }
 });
 
