@@ -343,7 +343,7 @@ const styles = StyleSheet.create({
 const styleForButtonDimensions = (heightPx, widthPx) => {
     return StyleSheet.create({
         buttonSize: {
-            height: heightPx,
+            height: "64px !important",
             width: widthPx,
             maxWidth: widthPx,
         },
