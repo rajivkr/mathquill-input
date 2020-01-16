@@ -376,7 +376,7 @@ var styles = StyleSheet.create({
 var styleForButtonDimensions = function styleForButtonDimensions(heightPx, widthPx) {
     return StyleSheet.create({
         buttonSize: {
-            height: "64px !important",
+            height: heightPx,
             width: widthPx,
             maxWidth: widthPx
         }
