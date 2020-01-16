@@ -63,7 +63,7 @@ var MathIcon = React.createClass({
         return React.createElement(
             View,
             { style: containerStyle },
-            math.indexOf("circ") ? '°' : math.indexOf("pi") ? 'π' : ''
+            math.indexOf("circ") > 0 ? '°' : math.indexOf("pi") > 0 ? 'π' : ''
         );
     }
 });
