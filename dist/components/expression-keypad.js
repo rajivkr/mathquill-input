@@ -16,7 +16,6 @@ var _require3 = require('../fake-react-native-web'),
     View = _require3.View;
 
 var TwoPageKeypad = require('./two-page-keypad');
-var ManyKeypadButton = require('./many-keypad-button');
 var TouchableKeypadButton = require('./touchable-keypad-button');
 
 var _require4 = require('./styles'),
@@ -138,10 +137,15 @@ var ExpressionKeypad = React.createClass({
                     keyConfig: this.props.numPad == true ? KeyConfigs.NUM_1 : KeyConfigs.p,
                     borders: BorderStyles.BOTTOM
                 }),
-                React.createElement(ManyKeypadButton, {
-                    keys: extraKeys,
-                    borders: BorderStyles.NONE
-                })
+                this.props.numPad == false ? React.createElement(
+                    View,
+                    { style: styles.keyboardType, onClick: this.togglePad },
+                    '123'
+                ) : React.createElement(
+                    View,
+                    { style: styles.keyboardType, onClick: this.togglePad },
+                    'abc'
+                )
             ),
             React.createElement(
                 View,
@@ -207,24 +211,11 @@ var ExpressionKeypad = React.createClass({
                 View,
                 { style: [column, oneColumn] },
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.FRAC_INCLUSIVE,
-                    style: roundTopRight && roundedTopRight
+                    keyConfig: KeyConfigs.RIGHT,
+                    borders: BorderStyles.NONE
                 }),
-                this.props.numPad == false ? React.createElement(
-                    View,
-                    { style: styles.keyboardType, onClick: this.togglePad },
-                    '123'
-                ) : React.createElement(
-                    View,
-                    { style: styles.keyboardType, onClick: this.togglePad },
-                    'abc'
-                ),
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.BACKSPACE,
-                    borders: BorderStyles.LEFT
-                }),
-                React.createElement(TouchableKeypadButton, {
-                    keyConfig: dismissOrJumpOutKey,
                     borders: BorderStyles.LEFT
                 })
             )
@@ -251,7 +242,7 @@ var ExpressionKeypad = React.createClass({
                     borders: BorderStyles.BOTTOM
                 }),
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.SIN,
+                    keyConfig: KeyConfigs.PI,
                     borders: BorderStyles.NONE
                 })
             ),
@@ -271,7 +262,7 @@ var ExpressionKeypad = React.createClass({
                     borders: BorderStyles.BOTTOM
                 }),
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.COS,
+                    keyConfig: KeyConfigs.DEGREE,
                     borders: BorderStyles.NONE
                 })
             ),
@@ -291,8 +282,8 @@ var ExpressionKeypad = React.createClass({
                     borders: BorderStyles.BOTTOM
                 }),
                 React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.TAN,
-                    borders: BorderStyles.NONE
+                    keyConfig: KeyConfigs.FRAC_INCLUSIVE,
+                    style: BorderStyles.NONE
                 })
             ),
             React.createElement(
