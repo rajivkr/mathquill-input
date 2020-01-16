@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
     // Touch events that start in the touchable buttons shouldn't be
     // allowed to produce page scrolls.
     touchAction: "none",
+    minHeight: "64px !improtant",
     // touchAction: "auto",
   },
 });
