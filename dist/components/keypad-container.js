@@ -204,10 +204,6 @@ var KeypadContainer = React.createClass({
                         }
                     }
                 },
-                navigationPadEnabled && React.createElement(NavigationPad, {
-                    roundTopLeft: layoutMode === LayoutModes.COMPACT,
-                    style: styles.navigationPadContainer
-                }),
                 React.createElement(
                     View,
                     { style: styles.keypadLayout },
