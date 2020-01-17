@@ -348,7 +348,7 @@ var styles = StyleSheet.create({
     iconWrapper: {
         zIndex: focusBoxZIndex + 1,
         transform: "scale(1.5)",
-        minHeight: 54
+        height: 54
     },
 
     focusBox: {
