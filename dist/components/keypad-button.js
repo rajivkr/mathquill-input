@@ -237,6 +237,7 @@ var KeypadButton = React.createClass({
         var renderFocused = !disabled && focused || popoverEnabled || type === KeyTypes.ECHO;
         var buttonStyle = this._getButtonStyle(type, borders, style);
         var focusStyle = this._getFocusStyle(type);
+        var iconScale = [styles.iconScale];
         var iconWrapperStyle = [styles.iconWrapper, disabled && styles.disabled];
 
         var eventHandlers = {
@@ -285,7 +286,7 @@ var KeypadButton = React.createClass({
                 React.createElement(
                     View,
                     { style: iconWrapperStyle },
-                    React.createElement(Icon, { icon: icon, focused: renderFocused })
+                    React.createElement(Icon, { icon: icon, focused: renderFocused, style: iconScale })
                 ),
                 maybeCornerDecal
             );
@@ -370,6 +371,9 @@ var styles = StyleSheet.create({
     },
     bottomBorder: {
         borderBottomWidth: innerBorderWidthPx
+    },
+    iconScale: {
+        transform: scale(1.5)
     }
 });
 
