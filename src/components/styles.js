@@ -37,5 +37,8 @@ module.exports = StyleSheet.create({
     },
     colCenter: {
       alignItems: 'center',
-    }
+    },
+    colEnd: {
+      alignItems: 'end',
+    },
 });
