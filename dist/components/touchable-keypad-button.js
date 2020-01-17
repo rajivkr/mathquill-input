@@ -165,7 +165,8 @@ var styles = StyleSheet.create({
     preventScrolls: {
         // Touch events that start in the touchable buttons shouldn't be
         // allowed to produce page scrolls.
-        touchAction: "none"
+        touchAction: "none",
+        color: "inherit"
         // touchAction: "auto",
     }
 });

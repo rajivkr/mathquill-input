@@ -24,7 +24,8 @@ var _require4 = require('./styles'),
     oneColumn = _require4.oneColumn,
     fullWidth = _require4.fullWidth,
     roundedTopLeft = _require4.roundedTopLeft,
-    roundedTopRight = _require4.roundedTopRight;
+    roundedTopRight = _require4.roundedTopRight,
+    colCenter = _require4.colCenter;
 
 var _require5 = require('../consts'),
     BorderStyles = _require5.BorderStyles;
@@ -227,7 +228,7 @@ var ExpressionKeypad = React.createClass({
             { style: leftPageStyle },
             React.createElement(
                 View,
-                { style: [column, oneColumn] },
+                { style: [column, oneColumn, colCenter] },
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.EXP_2,
                     borders: BorderStyles.NONE,
@@ -248,7 +249,7 @@ var ExpressionKeypad = React.createClass({
             ),
             React.createElement(
                 View,
-                { style: [column, oneColumn] },
+                { style: [column, oneColumn, colCenter] },
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.EXP_3,
                     borders: BorderStyles.NONE
@@ -268,7 +269,7 @@ var ExpressionKeypad = React.createClass({
             ),
             React.createElement(
                 View,
-                { style: [column, oneColumn] },
+                { style: [column, oneColumn, colCenter] },
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.EXP,
                     borders: BorderStyles.NONE
@@ -288,7 +289,7 @@ var ExpressionKeypad = React.createClass({
             ),
             React.createElement(
                 View,
-                { style: [column, oneColumn] },
+                { style: [column, oneColumn, colCenter] },
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.GEQ,
                     borders: BorderStyles.LEFT
@@ -305,7 +306,7 @@ var ExpressionKeypad = React.createClass({
             ),
             React.createElement(
                 View,
-                { style: [column, oneColumn] },
+                { style: [column, oneColumn, colCenter] },
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.GT,
                     borders: BorderStyles.NONE
