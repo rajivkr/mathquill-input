@@ -1,5 +1,9 @@
 'use strict';
 
+var _keyboardType;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 /**
  * A keypad that includes all of the expression symbols.
  */
@@ -25,7 +29,8 @@ var _require4 = require('./styles'),
     fullWidth = _require4.fullWidth,
     roundedTopLeft = _require4.roundedTopLeft,
     roundedTopRight = _require4.roundedTopRight,
-    colCenter = _require4.colCenter;
+    colCenter = _require4.colCenter,
+    colEnd = _require4.colEnd;
 
 var _require5 = require('../consts'),
     BorderStyles = _require5.BorderStyles;
@@ -125,7 +130,7 @@ var ExpressionKeypad = React.createClass({
             { style: rightPageStyle },
             React.createElement(
                 View,
-                { style: [column, oneColumn] },
+                { style: [column, oneColumn, colCenter] },
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: this.props.numPad == true ? KeyConfigs.NUM_7 : KeyConfigs.a,
                     borders: BorderStyles.NONE
@@ -140,17 +145,17 @@ var ExpressionKeypad = React.createClass({
                 }),
                 this.props.numPad == false ? React.createElement(
                     View,
-                    { style: styles.keyboardType, onClick: this.togglePad },
+                    { style: [styles.keyboardType, fullWidth], onClick: this.togglePad },
                     '123'
                 ) : React.createElement(
                     View,
-                    { style: styles.keyboardType, onClick: this.togglePad },
+                    { style: [styles.keyboardType, fullWidth], onClick: this.togglePad },
                     'abc'
                 )
             ),
             React.createElement(
                 View,
-                { style: [column, oneColumn] },
+                { style: [column, oneColumn, colCenter] },
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: this.props.numPad == true ? KeyConfigs.NUM_8 : KeyConfigs.b,
                     borders: BorderStyles.NONE
@@ -170,7 +175,7 @@ var ExpressionKeypad = React.createClass({
             ),
             React.createElement(
                 View,
-                { style: [column, oneColumn] },
+                { style: [column, oneColumn, colCenter] },
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: this.props.numPad == true ? KeyConfigs.NUM_9 : KeyConfigs.c,
                     borders: BorderStyles.NONE
@@ -185,7 +190,8 @@ var ExpressionKeypad = React.createClass({
                 }),
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.DECIMAL,
-                    borders: BorderStyles.LEFT
+                    borders: BorderStyles.LEFT,
+                    style: fullWidth
                 })
             ),
             React.createElement(
@@ -210,7 +216,7 @@ var ExpressionKeypad = React.createClass({
             ),
             React.createElement(
                 View,
-                { style: [column, oneColumn] },
+                { style: [column, oneColumn, colEnd] },
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.RIGHT,
                     borders: BorderStyles.NONE
@@ -348,13 +354,13 @@ var styles = StyleSheet.create({
         backgroundColor: controlGrey
     },
 
-    keyboardType: {
+    keyboardType: (_keyboardType = {
         padding: '9px 0px !important',
         textAlign: 'center !important',
         backgroundColor: '#FAFAFA !important',
         border: '1px solid #D6D8DA !important',
         cursor: 'pointer'
-    }
+    }, _defineProperty(_keyboardType, 'padding', '25px 0px'), _defineProperty(_keyboardType, 'fontSize', '26pt'), _keyboardType)
 });
 
 var mapStateToProps = function mapStateToProps(state) {
