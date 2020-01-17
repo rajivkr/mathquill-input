@@ -38,5 +38,8 @@ module.exports = StyleSheet.create({
     },
     roundedTopRight: {
         borderTopRightRadius: compactKeypadBorderRadiusPx
+    },
+    colCenter: {
+        alignItems: 'center'
     }
 });

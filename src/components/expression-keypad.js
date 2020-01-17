@@ -16,6 +16,7 @@ const {
     fullWidth,
     roundedTopLeft,
     roundedTopRight,
+    colCenter,
 } = require('./styles');
 const {BorderStyles} = require('../consts');
 const {valueGrey, controlGrey} = require('./common-style');
@@ -196,7 +197,7 @@ const ExpressionKeypad = React.createClass({
             roundTopLeft && roundedTopLeft,
         ];
         const leftPage = <View style={leftPageStyle}>
-            <View style={[column, oneColumn]}>
+            <View style={[column, oneColumn, colCenter]}>
                 <TouchableKeypadButton
                     keyConfig={KeyConfigs.EXP_2}
                     borders={BorderStyles.NONE}
@@ -215,7 +216,7 @@ const ExpressionKeypad = React.createClass({
                     borders={BorderStyles.NONE}
                 />
             </View>
-            <View style={[column, oneColumn]}>
+            <View style={[column, oneColumn, colCenter]}>
                 <TouchableKeypadButton
                     keyConfig={KeyConfigs.EXP_3}
                     borders={BorderStyles.NONE}
@@ -233,7 +234,7 @@ const ExpressionKeypad = React.createClass({
                     borders={BorderStyles.NONE}
                 />
             </View>
-            <View style={[column, oneColumn]}>
+            <View style={[column, oneColumn, colCenter]}>
                 <TouchableKeypadButton
                     keyConfig={KeyConfigs.EXP}
                     borders={BorderStyles.NONE}
@@ -251,7 +252,7 @@ const ExpressionKeypad = React.createClass({
                     style={BorderStyles.NONE}
                 />
             </View>
-            <View style={[column, oneColumn]}>
+            <View style={[column, oneColumn, colCenter]}>
                 <TouchableKeypadButton
                     keyConfig={KeyConfigs.GEQ}
                     borders={BorderStyles.LEFT}
@@ -266,7 +267,7 @@ const ExpressionKeypad = React.createClass({
                     borders={BorderStyles.LEFT}
                 />
             </View>
-            <View style={[column, oneColumn]}>
+            <View style={[column, oneColumn, colCenter]}>
                 <TouchableKeypadButton
                     keyConfig={KeyConfigs.GT}
                     borders={BorderStyles.NONE}
