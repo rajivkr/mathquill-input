@@ -60,7 +60,7 @@ var View = React.createClass({
                 // list reset
                 listStyle: 'none',
                 // fix flexbox bugs
-                maxWidth: 108,
+                maxWidth: '100%',
                 minHeight: 108,
                 minWidth: 0
             }
