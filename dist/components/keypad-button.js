@@ -373,7 +373,7 @@ var styles = StyleSheet.create({
         borderBottomWidth: innerBorderWidthPx
     },
     iconScale: {
-        transform: scale(1.5)
+        transform: "scale(1.5)"
     }
 });
 
