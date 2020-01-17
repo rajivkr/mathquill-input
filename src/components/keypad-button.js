@@ -221,7 +221,7 @@ const KeypadButton = React.createClass({
             childKeys.length > 0 && <CornerDecal style={styles.decalInset} />;
 
         if (type === KeyTypes.EMPTY) {
-            return <View style={buttonStyle} {...eventHandlers}  style={iconScale} />;
+            return <View style={buttonStyle} {...eventHandlers} />;
         } else if (type === KeyTypes.MANY) {
             // TODO(charlie): Make the long-press interaction accessible. See
             // the TODO in key-configs.js for more.
@@ -240,7 +240,7 @@ const KeypadButton = React.createClass({
             >
                 {maybeFocusBox}
                 <View style={iconWrapperStyle}>
-                    <MultiSymbolGrid icons={icons} focused={renderFocused}  style={iconScale} />
+                    <MultiSymbolGrid icons={icons} focused={renderFocused} />
                 </View>
                 {maybeCornerDecal}
             </View>;
@@ -253,7 +253,7 @@ const KeypadButton = React.createClass({
             return <View style={buttonStyle} {...eventHandlers} {...a11yMarkup}>
                 {maybeFocusBox}
                 <View style={iconWrapperStyle}>
-                    <Icon icon={icon} focused={renderFocused} style={iconScale} />
+                    <Icon icon={icon} focused={renderFocused} />
                 </View>
                 {maybeCornerDecal}
             </View>;
@@ -315,6 +315,7 @@ const styles = StyleSheet.create({
 
     iconWrapper: {
         zIndex: focusBoxZIndex + 1,
+        transform: "scale(1.5)"
     },
 
     focusBox: {
