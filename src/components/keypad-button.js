@@ -206,6 +206,7 @@ const KeypadButton = React.createClass({
             type === KeyTypes.ECHO;
         const buttonStyle = this._getButtonStyle(type, borders, style);
         const focusStyle = this._getFocusStyle(type);
+        const iconScale = [styles.iconScale];
         const iconWrapperStyle = [
             styles.iconWrapper,
             disabled && styles.disabled,
@@ -252,7 +253,7 @@ const KeypadButton = React.createClass({
             return <View style={buttonStyle} {...eventHandlers} {...a11yMarkup}>
                 {maybeFocusBox}
                 <View style={iconWrapperStyle}>
-                    <Icon icon={icon} focused={renderFocused} />
+                    <Icon icon={icon} focused={renderFocused} style={iconScale} />
                 </View>
                 {maybeCornerDecal}
             </View>;
@@ -338,6 +339,9 @@ const styles = StyleSheet.create({
     bottomBorder: {
         borderBottomWidth: innerBorderWidthPx,
     },
+    iconScale: {
+      transform: scale(1.5),
+    }
 });
 
 const styleForButtonDimensions = (heightPx, widthPx) => {
