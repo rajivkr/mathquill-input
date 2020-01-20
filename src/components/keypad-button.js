@@ -147,10 +147,6 @@ const KeypadButton = React.createClass({
                 backgroundStyle = styles.value;
                 break;
 
-            case KeyTypes.OPERATOR:
-                backgroundStyle = styles.operator;
-                break;
-
             case KeyTypes.INPUT_NAVIGATION:
             case KeyTypes.KEYPAD_NAVIGATION:
                 backgroundStyle = styles.control;
