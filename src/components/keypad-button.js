@@ -168,6 +168,9 @@ const KeypadButton = React.createClass({
         if (borders.indexOf(BorderDirections.BOTTOM) !== -1) {
             borderStyle.push(styles.bottomBorder);
         }
+        if (borders.indexOf(BorderDirections.ALL) !== -1) {
+            borderStyle.push(styles.leftBottomBorder);
+        }
 
         return [
             styles.buttonBase,
@@ -339,6 +342,10 @@ const styles = StyleSheet.create({
     },
     bottomBorder: {
         borderBottomWidth: innerBorderWidthPx,
+    },
+    leftBottomBorder: {
+      borderLeftWidth: innerBorderWidthPx,
+      borderBottomWidth: innerBorderWidthPx
     },
 });
 
