@@ -195,26 +195,6 @@ var ExpressionKeypad = React.createClass({
             ),
             React.createElement(
                 View,
-                { style: [column, oneColumn] },
-                React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.DIVIDE,
-                    borders: BorderStyles.LEFT
-                }),
-                React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.TIMES,
-                    borders: BorderStyles.LEFT
-                }),
-                React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.MINUS,
-                    borders: BorderStyles.LEFT
-                }),
-                React.createElement(TouchableKeypadButton, {
-                    keyConfig: KeyConfigs.PLUS,
-                    borders: BorderStyles.LEFT
-                })
-            ),
-            React.createElement(
-                View,
                 { style: [column, oneColumn, colEnd] },
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.RIGHT,
@@ -327,6 +307,26 @@ var ExpressionKeypad = React.createClass({
                 React.createElement(TouchableKeypadButton, {
                     keyConfig: KeyConfigs.RIGHT_PAREN,
                     borders: BorderStyles.NONE
+                })
+            ),
+            React.createElement(
+                View,
+                { style: [column, oneColumn] },
+                React.createElement(TouchableKeypadButton, {
+                    keyConfig: KeyConfigs.DIVIDE,
+                    borders: BorderStyles.LEFT
+                }),
+                React.createElement(TouchableKeypadButton, {
+                    keyConfig: KeyConfigs.TIMES,
+                    borders: BorderStyles.LEFT
+                }),
+                React.createElement(TouchableKeypadButton, {
+                    keyConfig: KeyConfigs.MINUS,
+                    borders: BorderStyles.LEFT
+                }),
+                React.createElement(TouchableKeypadButton, {
+                    keyConfig: KeyConfigs.PLUS,
+                    borders: BorderStyles.LEFT
                 })
             )
         );
