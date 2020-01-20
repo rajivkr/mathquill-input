@@ -351,7 +351,7 @@ const styles = StyleSheet.create({
       borderBottomWidth: innerBorderWidthPx
     },
     greyBackgound: {
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#FAFAFA',
     },
 });
 
