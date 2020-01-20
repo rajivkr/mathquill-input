@@ -78,7 +78,6 @@ var ExpressionKeypad = React.createClass({
         this.props.toggleNumAlphabets(!this.props.numPad);
     },
     render: function render() {
-        console.log('ffff', KeyConfigs);
         var _props = this.props,
             currentPage = _props.currentPage,
             cursorContext = _props.cursorContext,
