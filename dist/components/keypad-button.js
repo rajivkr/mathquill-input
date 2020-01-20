@@ -177,7 +177,7 @@ var KeypadButton = React.createClass({
 
         return [styles.focusBox, focusBackgroundStyle];
     },
-    _getButtonStyle: function _getButtonStyle(type, borders, style) {
+    _getButtonStyle: function _getButtonStyle(type, borders, style, ariaLabel) {
         // Select the appropriate style for the button.
         var backgroundStyle = void 0;
         switch (type) {
@@ -214,6 +214,9 @@ var KeypadButton = React.createClass({
         if (borders.indexOf(BorderDirections.ALL) !== -1) {
             borderStyle.push(styles.leftBottomBorder);
         }
+        if (ariaLabel == "Pi" || ariaLabel == "Degree") {
+            borderStyle.push(styles.greyBackgound);
+        }
 
         return [styles.buttonBase, backgroundStyle].concat(borderStyle, [type === KeyTypes.ECHO && styles.echo, this.buttonSizeStyle], _toConsumableArray(Array.isArray(style) ? style : [style]));
     },
@@ -238,7 +241,7 @@ var KeypadButton = React.createClass({
         // echo.
 
         var renderFocused = !disabled && focused || popoverEnabled || type === KeyTypes.ECHO;
-        var buttonStyle = this._getButtonStyle(type, borders, style);
+        var buttonStyle = this._getButtonStyle(type, borders, style, ariaLabel);
         var focusStyle = this._getFocusStyle(type);
         var iconWrapperStyle = [styles.iconWrapper, disabled && styles.disabled];
 
@@ -379,6 +382,9 @@ var styles = StyleSheet.create({
     leftBottomBorder: {
         borderLeftWidth: innerBorderWidthPx,
         borderBottomWidth: innerBorderWidthPx
+    },
+    greyBackgound: {
+        backgroundColor: '#FFFFFF'
     }
 });
 
