@@ -54,7 +54,6 @@ const ExpressionKeypad = React.createClass({
     },
 
     render() {
-      console.log('ffff', KeyConfigs);
         const {
             currentPage,
             cursorContext,
