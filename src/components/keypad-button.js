@@ -346,8 +346,7 @@ const styleForButtonDimensions = (heightPx, widthPx) => {
     return StyleSheet.create({
         buttonSize: {
             height: heightPx,
-            width: widthPx,
-            maxWidth: widthPx,
+            width: '100%',
         },
     }).buttonSize;
 };
