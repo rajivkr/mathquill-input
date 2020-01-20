@@ -164,7 +164,7 @@ const ExpressionKeypad = React.createClass({
             <View style={[column, oneColumn, colEnd]}>
                 <TouchableKeypadButton
                     keyConfig={KeyConfigs.RIGHT}
-                    borders={BorderStyles.NONE}
+                    borders={BorderStyles.ALL}
                 />
                 <TouchableKeypadButton
                     keyConfig={KeyConfigs.BACKSPACE}
@@ -214,7 +214,7 @@ const ExpressionKeypad = React.createClass({
                 />
                 <TouchableKeypadButton
                     keyConfig={KeyConfigs.DEGREE}
-                    borders={BorderStyles.NONE}
+                    borders={BorderStyles.LEFT}
                 />
             </View>
             <View style={[column, oneColumn, colCenter]}>

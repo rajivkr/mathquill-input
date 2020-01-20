@@ -211,6 +211,9 @@ var KeypadButton = React.createClass({
         if (borders.indexOf(BorderDirections.BOTTOM) !== -1) {
             borderStyle.push(styles.bottomBorder);
         }
+        if (borders.indexOf(BorderDirections.ALL) !== -1) {
+            borderStyle.push(styles.leftBottomBorder);
+        }
 
         return [styles.buttonBase, backgroundStyle].concat(borderStyle, [type === KeyTypes.ECHO && styles.echo, this.buttonSizeStyle], _toConsumableArray(Array.isArray(style) ? style : [style]));
     },
@@ -371,6 +374,10 @@ var styles = StyleSheet.create({
         borderLeftWidth: innerBorderWidthPx
     },
     bottomBorder: {
+        borderBottomWidth: innerBorderWidthPx
+    },
+    leftBottomBorder: {
+        borderLeftWidth: innerBorderWidthPx,
         borderBottomWidth: innerBorderWidthPx
     }
 });
