@@ -52,7 +52,7 @@ const MathIcon = React.createClass({
 
         return (
             <View style={containerStyle}>
-              {math.indexOf("circ") > 0 ? '°' : math.indexOf("pi") > 0 ? 'π' : ''}
+              {math.indexOf("circ") > 0 ? String.fromCharCode(176) : math.indexOf("pi") > 0 ? String.fromCharCode(960) : ''}
             </View>
         );
     },
