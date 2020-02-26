@@ -40,6 +40,7 @@ var Keys = {
   SIN: 'SIN',
   COS: 'COS',
   TAN: 'TAN',
+  PIPE: 'PIPE',
 
   // TODO(charlie): Add in additional Greek letters.
   PI: 'PI',
