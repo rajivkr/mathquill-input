@@ -25,92 +25,93 @@ var _require2 = require('../actions'),
 var createStore = require('../store');
 
 var ProvidedKeypad = React.createClass({
-  displayName: 'ProvidedKeypad',
+    displayName: 'ProvidedKeypad',
 
-  propTypes: {
-    onElementMounted: React.PropTypes.func
-  },
+    propTypes: {
+        onElementMounted: React.PropTypes.func
+    },
 
-  componentWillMount: function componentWillMount() {
-    this.store = createStore();
-  },
-  activate: function activate() {
-    this.store.dispatch(activateKeypad());
-  },
-  dismiss: function dismiss() {
-    this.store.dispatch(dismissKeypad());
-    // this.props.onKeyPadDismiss && this.props.onKeyPadDismiss()
-  },
-  configure: function configure(configuration, cb) {
-    this.store.dispatch(configureKeypad(configuration));
+    componentWillMount: function componentWillMount() {
+        this.store = createStore();
+    },
+    activate: function activate() {
+        this.store.dispatch(activateKeypad());
+    },
+    dismiss: function dismiss() {
+        this.store.dispatch(dismissKeypad());
+        // this.props.onKeyPadDismiss && this.props.onKeyPadDismiss()
+    },
+    configure: function configure(configuration, cb) {
+        this.store.dispatch(configureKeypad(configuration));
 
-    // HACK(charlie): In Perseus, triggering a focus causes the keypad to
-    // animate into view and re-configure. We'd like to provide the option
-    // to re-render the re-configured keypad before animating it into view,
-    // to avoid jank in the animation. As such, we support passing a
-    // callback into `configureKeypad`. However, implementing this properly
-    // would require middleware, etc., so we just hack it on with
-    // `setTimeout` for now.
-    setTimeout(function () {
-      return cb && cb();
-    });
-  },
-  configureMany: function configureMany(configuration, cb) {
-    this.store.dispatch(ConfigureManyKeypad(configuration));
+        // HACK(charlie): In Perseus, triggering a focus causes the keypad to
+        // animate into view and re-configure. We'd like to provide the option
+        // to re-render the re-configured keypad before animating it into view,
+        // to avoid jank in the animation. As such, we support passing a
+        // callback into `configureKeypad`. However, implementing this properly
+        // would require middleware, etc., so we just hack it on with
+        // `setTimeout` for now.
+        setTimeout(function () {
+            return cb && cb();
+        });
+    },
+    configureMany: function configureMany(configuration, cb) {
+        this.store.dispatch(ConfigureManyKeypad(configuration));
 
-    setTimeout(function () {
-      return cb && cb();
-    });
-  },
-  setCursor: function setCursor(cursor) {
-    this.store.dispatch(_setCursor(cursor));
-  },
-  setKeyHandler: function setKeyHandler(keyHandler) {
-    this.store.dispatch(_setKeyHandler(keyHandler));
-  },
+        setTimeout(function () {
+            return cb && cb();
+        });
+    },
+    setCursor: function setCursor(cursor) {
+        this.store.dispatch(_setCursor(cursor));
+    },
+    setKeyHandler: function setKeyHandler(keyHandler) {
+        this.store.dispatch(_setKeyHandler(keyHandler));
+    },
 
-  //add
-  getDOMNode: function getDOMNode() {
-    return ReactDOM.findDOMNode(this);
-  },
+    //add
+    getDOMNode: function getDOMNode() {
+        return ReactDOM.findDOMNode(this);
+    },
 
-  //
+    //
 
-  render: function render() {
-    var _this = this;
+    render: function render() {
+        var _this = this;
 
-    // console.log('provided-keypad render')
-    var _props = this.props,
-        _onElementMounted = _props.onElementMounted,
-        rest = _objectWithoutProperties(_props, ['onElementMounted']);
+        // console.log('provided-keypad render')
+        var _props = this.props,
+            _onElementMounted = _props.onElementMounted,
+            rest = _objectWithoutProperties(_props, ['onElementMounted']);
 
-    if (!rest.extraKeys || !rest.extraKeys.length) {
-      delete rest.extraKeys;
-    }
-
-    return React.createElement(
-      Provider,
-      { store: this.store },
-      React.createElement(KeypadContainer, {
-        onElementMounted: function onElementMounted(element) {
-          // Append the dispatch methods that we want to expose
-          // externally to the returned React element.
-          var elementWithDispatchMethods = _extends({}, element, {
-            activate: _this.activate,
-            dismiss: _this.dismiss,
-            configure: _this.configure,
-            configureMany: _this.configureMany,
-            setCursor: _this.setCursor,
-            setKeyHandler: _this.setKeyHandler,
-            //add
-            getDOMNode: _this.getDOMNode
-            //
-          });
-          _onElementMounted && _onElementMounted(elementWithDispatchMethods);
+        if (!rest.extraKeys || !rest.extraKeys.length) {
+            delete rest.extraKeys;
         }
-      })
-    );
-  }
+
+        return React.createElement(
+            Provider,
+            { store: this.store },
+            React.createElement(KeypadContainer, _extends({
+                onElementMounted: function onElementMounted(element) {
+                    // Append the dispatch methods that we want to expose
+                    // externally to the returned React element.
+                    var elementWithDispatchMethods = _extends({}, element, {
+                        activate: _this.activate,
+                        dismiss: _this.dismiss,
+                        configure: _this.configure,
+                        configureMany: _this.configureMany,
+                        setCursor: _this.setCursor,
+                        setKeyHandler: _this.setKeyHandler,
+                        //add
+                        getDOMNode: _this.getDOMNode
+                        //
+                    });
+                    _onElementMounted && _onElementMounted(elementWithDispatchMethods);
+                }
+
+            }, rest))
+        );
+    }
 });
 
 module.exports = ProvidedKeypad;
